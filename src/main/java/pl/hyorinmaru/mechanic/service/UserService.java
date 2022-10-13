@@ -17,6 +17,7 @@ public class UserService {
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
+
     public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
@@ -40,15 +41,15 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public boolean checkPassword(String password) {
-        return !password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–\\[{}\\]:;',?\\/*~$^+=<>]).{8,20}$");
-    }
-
-    public User findById(Long id){
+    public User findById(Long id) {
         return userRepository.findUserById(id);
     }
 
-    public void changeActive(int active, Long userId){
-        userRepository.changeActive(active , userId);
+    public void changeActive(int active, Long userId) {
+        userRepository.changeActive(active, userId);
+    }
+
+    public boolean checkPassword(String password) {
+        return !password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–\\[{}\\]:;',?\\/*~$^+=<>]).{8,20}$");
     }
 }

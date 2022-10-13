@@ -16,17 +16,17 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/home").permitAll()
+                .antMatchers("/home", "/static/**", "/css/**").permitAll()
                 .antMatchers("/login", "/registry").anonymous()
                 .anyRequest().denyAll()
                 .and().formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error=true")
-                .defaultSuccessUrl("/main",true)
+                .defaultSuccessUrl("/main", true)
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
