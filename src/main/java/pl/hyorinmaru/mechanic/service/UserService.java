@@ -52,4 +52,8 @@ public class UserService {
     public boolean checkPassword(String password) {
         return !password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–\\[{}\\]:;',?\\/*~$^+=<>]).{8,20}$");
     }
+
+    public User test(Long id){
+        return userRepository.findByUserDataId(id);
+    }
 }

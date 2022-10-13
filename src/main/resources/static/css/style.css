@@ -1,5 +1,6 @@
 body {
     background-image: url("/static/images/web-dark.png"); /*from http://subtlepatterns.com */
+    font-size: 19px;
 }
 
 #container {

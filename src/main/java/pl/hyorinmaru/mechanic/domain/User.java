@@ -38,4 +38,11 @@ public class User {
     @OneToMany(mappedBy = "owner")
     private List<Car> cars;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                "email" + userData.getEmail() + '\'' +
+                '}';
+    }
 }

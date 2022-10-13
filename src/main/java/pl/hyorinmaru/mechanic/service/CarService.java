@@ -2,6 +2,7 @@ package pl.hyorinmaru.mechanic.service;
 
 import org.springframework.stereotype.Service;
 import pl.hyorinmaru.mechanic.domain.Car;
+import pl.hyorinmaru.mechanic.domain.User;
 import pl.hyorinmaru.mechanic.repository.CarRepository;
 
 import java.util.List;
@@ -28,6 +29,10 @@ public class CarService {
         return carRepository.findAll();
     }
 
+    public List<Car> readByOwner(User owner){
+      return carRepository.findCarByOwner(owner);
+    };
+
     public void update(Car car) {
         carRepository.update(car.getBrand(), car.getModel(), car.getProductionDate(), car.getId());
     }
@@ -36,7 +41,7 @@ public class CarService {
         carRepository.deleteById(id);
     }
 
-    public void delte(Car car) {
+    public void delete(Car car) {
         carRepository.delete(car);
     }
 }

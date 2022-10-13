@@ -22,5 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Query("update User u set u.active=?1 where u.id=?2")
     void changeActive(int active, Long id);
+
+    User findByUserDataId(Long id);
 }
 

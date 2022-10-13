@@ -6,10 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pl.hyorinmaru.mechanic.domain.Car;
+import pl.hyorinmaru.mechanic.domain.User;
+
+import java.util.List;
 
 @Repository
 @Transactional(readOnly = true)
 public interface CarRepository extends JpaRepository<Car, Long> {
+
+    List<Car> findCarByOwner(User owner);
 
     @Modifying
     @Transactional
