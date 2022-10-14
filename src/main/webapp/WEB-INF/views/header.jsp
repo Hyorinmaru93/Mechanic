@@ -29,6 +29,7 @@
       <c:if test="${loggedIn}">
         <li><a href="/user/main">User page</a></li>
         <li><a href="/user/settings">My account</a></li>
+        <li><a href="/user/car/brand">Add car</a></li>
         <li><a href="/logout">Logout </a></li>
       </c:if>
     </ul>

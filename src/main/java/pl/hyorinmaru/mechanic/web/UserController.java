@@ -23,7 +23,6 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-
     private final UserDataService userDataService;
     private final CarService carService;
 
