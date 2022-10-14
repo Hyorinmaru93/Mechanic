@@ -31,14 +31,16 @@ public class UserController {
         this.userDataService = userDataService;
         this.carService = carService;
     }
-
-    @RequestMapping("main")
-    public String main(@AuthenticationPrincipal UserDetails userDetails, Model model) {
-
+    @RequestMapping("/forward")
+    public String forward(@AuthenticationPrincipal UserDetails userDetails, Model model){
         User user = userService.findByUserName(userDetails.getUsername());
-
         model.addAttribute("DBUser", user);
+        return "redirect:/user/main";
+    }
 
+    @RequestMapping("/main")
+    public String main(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+        User user = userService.findByUserName(userDetails.getUsername());
         List<Car> cars = carService.readByOwner(userService.findByUserName(user.getUsername()));
         if (cars.size() != 0) {
             model.addAttribute("carList", cars);

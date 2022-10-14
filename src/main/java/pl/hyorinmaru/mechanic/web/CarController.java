@@ -52,4 +52,25 @@ public class CarController {
         model.addAttribute("models", models);
         return "/user/model";
     }
+
+    @PostMapping("/category")
+    public String category(@ModelAttribute Car car, Model model) {
+        List<String> categories = Arrays.asList("SUV", "Coupe", "Sedan", "Wagon");
+        model.addAttribute("car", car);
+        model.addAttribute("categories", categories);
+        return "/user/categories";
+    }
+
+    @PostMapping("/year")
+    public String productionYear(@ModelAttribute Car car, Model model) {
+        model.addAttribute("car", car);
+        return "/user/year";
+    }
+
+    @PostMapping("/add")
+    public String add(@ModelAttribute Car car) {
+        car.setCustomName(car.getBrand() + " " + car.getModel() + " " + car.getProductionDate());
+        carService.create(car);
+        return "redirect:/user/main";
+    }
 }

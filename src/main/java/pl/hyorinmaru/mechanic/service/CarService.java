@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Service
 public class CarService {
-
     private final CarRepository carRepository;
 
     public CarService(CarRepository carRepository) {

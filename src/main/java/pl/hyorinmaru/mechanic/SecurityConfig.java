@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .and().formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error=true")
-                .defaultSuccessUrl("/user/main", true)
+                .defaultSuccessUrl("/user/forward", true)
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

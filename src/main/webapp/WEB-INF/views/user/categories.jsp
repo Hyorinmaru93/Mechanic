@@ -5,13 +5,16 @@
 <%@include file="../header.jsp"%>
 Brand: ${car.brand}
 <br/>
-<form:form action="/user/car/category" modelAttribute="car" method="post">
+Model ${car.model}
+<br/>
+<form:form action="/user/car/year" modelAttribute="car" method="post">
   <form:hidden path="owner" value="${DBUser.id}"/>
   <form:hidden path="brand" value="${car.brand}"/>
-  Select model:
+  <form:hidden path="model" value="${car.model}"/>
+  Select category:
   <br/>
-  <form:select path="model">
-    <form:options items="${models}"/>
+  <form:select path="category">
+    <form:options items="${categories}"/>
   </form:select>
   <br/>
   <input type="submit" value="Next"/>
