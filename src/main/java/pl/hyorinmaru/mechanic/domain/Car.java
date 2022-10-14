@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,5 +26,8 @@ public class Car {
     private String customName;
     @ManyToOne
     private User owner;
+
+    @OneToMany(mappedBy = "car")
+    private List<Orders> orders;
 
 }
